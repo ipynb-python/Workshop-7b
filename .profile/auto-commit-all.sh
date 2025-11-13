@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Ensure bash environment is sourced for user settings like PATH
-source ~/.bashrc
 
 # --- Configuration ---
 BASE_DIR="/workspaces"
