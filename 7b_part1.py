@@ -39,5 +39,5 @@ if __name__ == "__main__":
 
 # Expect output like:
 # [{'text': 'Two plus two equals seven', 'answer': 'F', 'guess': '?'}, 
-# {'text': 'A carrot is the same colour as an orange', 'answer': 'T', 'guess': '?'}, 
-# {'text': 'Ten divided by two is five', 'answer': 'T', 'guess': '?'}]
+#  {'text': 'A carrot is the same colour as an orange', 'answer': 'T', 'guess': '?'}, 
+# { 'text': 'Ten divided by two is five', 'answer': 'T', 'guess': '?'}]

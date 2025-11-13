@@ -9,7 +9,7 @@
   "customizations": {
     "codespaces": {
       "openFiles": [],
-      "remote.autoForwardPorts": false
+      "remote.autoForwardPorts": true
     },
     "vscode": {
       "extensions": [        
