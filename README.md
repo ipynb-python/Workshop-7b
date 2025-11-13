@@ -1,13 +1,12 @@
-Workshop 6b
+## Workshop 7b
 
 Please find the instructions for this workshop here: 
 
-https://github.com/ipynb-python/Workshop-6b-Instructions/blob/main/README.md
+https://github.com/ipynb-python/Workshop-7b-Instructions/blob/main/README.md
 
-As you work test your code in the terminal e.g.
-
+As you work test your code in the terminal e.g. using
 ```
-python 6b_part1.py
+python 7b_part1.py
 ```
 
 After completing the exercises please run the following commands in the terminal.
@@ -23,8 +22,7 @@ git commit -m "finished exercises"
 git push
 ```
 
-It is a good habit to commit and push your files
- everytime you have made a significant change. 
+It is a good habit to commit and push your files everytime you have made a significant change. 
  
 In this case you can change the commit message, e.g. 
 

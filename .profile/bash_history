@@ -1,0 +1,4 @@
+cat /tmp/auto-commit-workspaces_Workshop-7b.log 
+conda activate base
+/workspaces/Workshop-7b/.profile/auto-commit-all.sh
+/workspaces/Workshop-7b/.profile/auto-commit-all.sh -h
