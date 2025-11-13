@@ -4,7 +4,7 @@ Please find the instructions for this workshop here:
 
 https://github.com/ipynb-python/Workshop-7b-Instructions/blob/main/README.md
 
-As you work test your code in the terminal e.g. using
+As you work test your code in the terminal e.g. 
 ```
 python 7b_part1.py
 ```
