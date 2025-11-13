@@ -1,19 +1,2 @@
-mv part1.py 7b_part1.py
-mv part2.py 7b_part2.py
-mv part3.py 7b_part3.py
-mv part4.py 7b_part4.py
-python 7b_part1.py
-chmod g+x .profile/auto-commit-all.sh 
-ls -l .profile/auto-commit-all.sh 
-chmod u+x .profile/auto-commit-all.sh 
-conda activate base
-ls -ltr /tmp
-cat /tmp/# --- NEW: Verbose Flag Setup ---
-VERBOSE=0
-# Check for verbose flag in arguments
-if [ "$1" == "-v" ]; then     VERBOSE=1;     shift # Remove the -v flag from the arguments list
-fi
-# Custom echo function: prints only if VERBOSE=1
-vecho() {     if [ "$VERBOSE" -eq 1 ]; then         echo "$@";     fi; }
-# -----------------------------q
 cat /tmp/auto-commit-workspaces_Workshop-7b.log 
+conda activate base

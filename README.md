@@ -4,7 +4,7 @@ Please find the instructions for this workshop here:
 
 https://github.com/ipynb-python/Workshop-7b-Instructions/blob/main/README.md
 
-As you work test your code in the terminal e.g. using
+As you work test your code in the terminal e.g.
 ```
 python 7b_part1.py
 ```
@@ -22,8 +22,7 @@ git commit -m "finished exercises"
 git push
 ```
 
-It is a good habit to commit and push your files
- everytime you have made a significant change. 
+It is a good habit to commit and push your files everytime you have made a significant change. 
  
 In this case you can change the commit message, e.g. 
 

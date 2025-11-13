@@ -61,7 +61,7 @@ if [ $# -eq 0 ]; then
             kill "$PID" >& /dev/null
         done
         vecho "Waiting for old processes to release locks..."
-        sleep 1
+        sleep 3
     else
         vecho "No existing watcher processes found."
     fi
