@@ -58,7 +58,7 @@ if [ $# -eq 0 ]; then
     if [ -n "$EXISTING_PIDS" ]; then
         for PID in $EXISTING_PIDS; do
             vecho " - Stopping old watcher (PID: $PID)..."
-            kill "$PID" >& 
+            kill "$PID" >& /dev/null
         done
         vecho "Waiting for old processes to release locks..."
         sleep 1
