@@ -14,19 +14,35 @@ AUTOSAVE_BRANCH_NAME="autosave"
 
 # --- Script Logic ---
 
+# --- NEW: Verbose Flag Setup ---
+VERBOSE=0
+# Check for verbose flag in arguments
+if [ "$1" == "-v" ]; then
+    VERBOSE=1
+    shift # Remove the -v flag from the arguments list
+fi
+
+# Custom echo function: prints only if VERBOSE=1
+vecho() {
+    if [ "$VERBOSE" -eq 1 ]; then
+        echo "$@"
+    fi
+}
+# -----------------------------
+
 # --- Halt Flag Check ---
 if [ "$1" == "-h" ]; then
-    echo "Halt flag detected. Stopping all running watcher processes..."
+    vecho "Halt flag detected. Stopping all running watcher processes..."
     EXISTING_PIDS=$(pgrep -f "$0" | grep -v $$)
     
     if [ -n "$EXISTING_PIDS" ]; then
         for PID in $EXISTING_PIDS; do
-            echo " - Stopping (PID: $PID)..."
+            vecho " - Stopping (PID: $PID)..."
             kill "$PID"
         done
-        echo "All processes halted."
+        vecho "All processes halted."
     else
-        echo "No running processes found."
+        vecho "No running processes found."
     fi
     exit 0
 fi
@@ -36,7 +52,7 @@ if [ $# -eq 0 ]; then
     
     SCRIPT_PATH=$(realpath "$0")
     
-    echo "Launcher Mode: Stopping all existing watcher processes..."
+    vecho "Launcher Mode: Stopping all existing watcher processes..."
     EXISTING_PIDS=$(pgrep -f "$SCRIPT_PATH" | grep -v $$)
     
     if [ -n "$EXISTING_PIDS" ]; then
@@ -44,13 +60,13 @@ if [ $# -eq 0 ]; then
             echo " - Stopping old watcher (PID: $PID)..."
             kill "$PID"
         done
-        echo "Waiting for old processes to release locks..."
+        vecho "Waiting for old processes to release locks..."
         sleep 1
     else
-        echo "No existing watcher processes found."
+        vecho "No existing watcher processes found."
     fi
 
-    echo "Restart complete. Finding all git repos under $BASE_DIR..."
+    vecho "Restart complete. Finding all git repos under $BASE_DIR..."
     
     if [ ! -f "$SCRIPT_PATH" ]; then
         echo "Error: Could not determine script's full path. Is 'realpath' installed?"
@@ -59,18 +75,18 @@ if [ $# -eq 0 ]; then
     
     find "$BASE_DIR" -type d -name ".git" | while read GIT_DIR; do
         REPO_DIR=$(dirname "$GIT_DIR")
-        echo " - Found repo: $REPO_DIR"
+        vecho " - Found repo: $REPO_DIR"
         
         LOG_NAME=$(echo "$REPO_DIR" | tr '/' '_' | sed 's/^_//')
         LOG_FILE="/tmp/auto-commit-$LOG_NAME.log"
         
-        echo "   -> Attempting to start new watcher. Log file: $LOG_FILE"
+        vecho "   -> Attempting to start new watcher. Log file: $LOG_FILE"
         nohup "$SCRIPT_PATH" "$REPO_DIR" > "$LOG_FILE" 2>&1 &
         
     done
     
-    echo "Launcher finished. New watcher processes are starting."
-    echo "Close this terminal to stop all watchers."
+    vecho "Launcher finished. New watcher processes are starting."
+    vecho "Close this terminal to stop all watchers."
     
 else
     ### WATCHER MODE ###
@@ -83,7 +99,7 @@ else
     exec 200>"$LOCKFILE"
     
     flock -n 200 || {
-        echo "[$TARGET_DIR] Error: Watcher is already running. Exiting."
+        vecho "[$TARGET_DIR] Error: Watcher is already running. Exiting."
         exec 200>&- 
         exit 1
     }

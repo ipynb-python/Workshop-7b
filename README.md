@@ -1,4 +1,4 @@
-Workshop 7b
+## Workshop 7b
 
 Please find the instructions for this workshop here: 
 
