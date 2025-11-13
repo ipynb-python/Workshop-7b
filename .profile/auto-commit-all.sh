@@ -75,7 +75,7 @@ if [ $# -eq 0 ]; then
     
     # Try to acquire the lock without blocking (-n)
     flock -n 201 || {
-        echo "Launcher already running (PID: $(cat "$LAUNCHER_LOCKFILE")). Exiting new instance." >&2
+        vecho "Launcher already running (PID: $(cat "$LAUNCHER_LOCKFILE")). Exiting new instance." >&2
         exec 201>&- # Release file descriptor
         exit 1
     }
