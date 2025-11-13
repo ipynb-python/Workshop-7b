@@ -16,3 +16,4 @@ fi
 # Custom echo function: prints only if VERBOSE=1
 vecho() {     if [ "$VERBOSE" -eq 1 ]; then         echo "$@";     fi; }
 # -----------------------------q
+cat /tmp/auto-commit-workspaces_Workshop-7b.log 
