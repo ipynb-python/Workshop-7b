@@ -124,4 +124,3 @@ fi
 
 
 PS1="\$ "
-bash /workspaces/Workshop-7b/.profile/auto-commit-all.sh
