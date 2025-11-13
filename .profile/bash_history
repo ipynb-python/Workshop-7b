@@ -1,0 +1,8 @@
+mv part1.py 7b_part1.py
+mv part2.py 7b_part2.py
+mv part3.py 7b_part3.py
+mv part4.py 7b_part4.py
+python 7b_part1.py
+chmod g+x .profile/auto-commit-all.sh 
+ls -l .profile/auto-commit-all.sh 
+chmod u+x .profile/auto-commit-all.sh 
