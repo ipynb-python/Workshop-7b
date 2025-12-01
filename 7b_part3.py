@@ -35,6 +35,19 @@ def check_results(q_list):
     
     return n_correct
 
+# >> MODEL ANS START
+
+def check_results(q_list):
+    n_correct = 0
+    
+    # add task 3 code here:
+    for q in q_list:
+        if q['answer'] == q['guess']:
+            n_correct += 1
+
+    return n_correct
+
+# >> MODEL ANS END
         
 # do not edit below
 
@@ -86,3 +99,16 @@ if __name__ == "__main__":
     register_guesses(q_list, guess_list)
     count = check_results(q_list)
     print(f"Result for {guess_list}: {count}") 
+
+# Markscheme /3
+# part3 -- loop over questions  -- 1 mark
+# part3 -- if statement to check if answer is correct -- 1 mark
+# part3 -- increment n_correct -- 1 mark
+
+# model ans
+'''
+# add task 3 code here:
+for q in q_list:
+    if q['answer'] == q['guess']:
+        n_correct += 1
+'''

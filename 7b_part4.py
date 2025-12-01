@@ -73,7 +73,7 @@ def play_game(q_list):
         # change below to 
         #  take_valid_guess(q_list)  
         # when you have written it
-        take_guess(q_list) 
+        take_valid_guess(q_list) 
 
         # check if attempt is successful
         n_correct = check_results(q_list)
@@ -81,6 +81,11 @@ def play_game(q_list):
         if n_correct == n:
             finished = True
             success = True
+
+        # model ans (place at end of while loop)
+        if n_attempt == max_attempts:
+            success = False
+            break
 
     # report result
     if success:  
@@ -143,21 +148,63 @@ def register_guesses(q_list, guess_list):
 #### to use your improved function.
     
 def init_guesses(q_list):
-    # add code here    
+    ## model answer
+    for q in q_list:
+        q_list['guess'] = '?'
+    
     return
 
 def take_valid_guess(q_list):
     # initialise guest_list
     guess_list = []
-    # add code here
+
+    # add task 2 code here:
+    guess_string = None
+    while len(guess_list) == 0:
+        guess_string = input("> ").upper()
+
+        if len(guess_string) != len(q_list):
+            continue
+
+        valid = True
+        for letter in guess_string:
+            if letter not in ("T","F"):
+                valid = False
+
+        if valid:
+            guess_list = list(guess_string)
+    
+    # store result
+    # do not change the code below
     print(f"Entering guess: {guess_list}")
     register_guesses(q_list, guess_list)
     return
 
+
 def check_results(q_list):
     n_correct = 0
-    # add code here
+    
+    # add task 3 code here:
+    for q in q_list:
+        if q['answer'] == q['guess']:
+            n_correct += 1
+
     return n_correct
+
 
 if __name__ == "__main__":
     play_game(q_list)
+
+
+# Markscheme /2
+# part4 -- while loop ends when attempts used up (allow break or set finished=True)  -- 1 mark
+# part4 -- success set to False so correct message shown -- 1 mark
+
+# model ans
+'''
+# model ans 
+# place at end of while loop in play_game()
+if n_attempt == max_attempts:
+    success = False
+    break
+'''
